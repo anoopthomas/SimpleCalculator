@@ -1,0 +1,137 @@
+QUESTION 1
+
+ACS + Titanium learning, build a titanium app which contains:
+    two text boxes to input two numbers
+    four buttons for addition, subtraction, multiplication, division operations 
+    result label that shows the output of these operations
+    Another button 'save to ACS' that brings up a pop-up to give a name to save this result and then saves this to ACS
+    for example, if you input 4 and 5 and clicked + then it should show 9 in result label. Now if click on save ACS button, enter name as firstSave and click ok to save to ACS. You should save  both operands and operator and result in ACS
+    Another button 'retrieve existing results' -> when clicked on it, should open another window and print a list of all stored results including both operands, operators and result. 
+    Docs:
+      http://docs.appcelerator.com/titanium/latest/#!/api/Titanium.Cloud
+      http://docs.appcelerator.com/cloud/latest/#!/guide/acs_quickstart
+      http://docs.appcelerator.com/cloud/latest/#!/guide/titanium
+
+DEVELOPMENT ENVIRONMENT
+
+Windows 7 64 bit Home Premium Service Pack 1
+Intel Core i5-3210M CPU
+
+
+Titanium SDK – version 3.2.3.GA
+Titanium CLI – version 3.2.3
+Alloy – version 1.3.1
+Node.ACS – version 1.0.14
+Android version – 4.1.2
+
+TEST ENVIRONMENT
+
+Mobile app tested on an android device only
+
+
+ASSUMPTIONS
+  * Assumes that a user with the credentials are already created.
+  
+    User credentials
+    	User name 	: 	anoopthomas
+    	password	:	anoop123
+    	first_name	:	Anoop
+    	last_name	:	Thomas
+
+  * Results are rounded to its nearest 2 decimal places
+  * Orientation issue not handled
+
+OBSERVATION
+
+1)App was working fine for a couple of hours on Friday, 05/16/2014 eve till I got this error message. The error got rectified itself
+ when I executed the app without any change the next day. Given below is the error log
+
+[INFO] :   Installing apk: D:\Projects\Titanium_Studio_Workspace\SimpleCalculator\build\android\bin\SimpleCalculator.apk
+[INFO] :   Installing app on device: SGH-M919
+[INFO] :   App successfully installed
+[INFO] :   Starting app: com.akt.programs.simplecalculator/.SimplecalculatorActivity
+[INFO] :   Application pid: 24230
+[INFO] :   Project built successfully in 1m 16s 666ms
+-- Start application log -----------------------------------------------------
+[ERROR] :  SELinux: Function: selinux_android_load_priority [0], There is no sepolicy file
+[ERROR] :  SELinux:
+[ERROR] :  SELinux: Function: selinux_android_load_priority , loading version is VE=SEPF_SGH-M919_4.3_0021
+[ERROR] :  SELinux:
+[ERROR] :  SELinux:
+[ERROR] :  SELinux: selinux_android_seapp_context_reload: seapp_contexts file is loaded from /data/security/spota/seapp_contexts
+[INFO] :   TiApplication: (main) [0,0] checkpoint, app created.
+[INFO] :   TiApplication: (main) [111,111] Titanium 3.2.3 (2014/04/22 10:17 b958a70)
+[DEBUG] :  dalvikvm: Trying to load lib /data/app-lib/com.akt.programs.simplecalculator-1/libstlport_shared.so 0x4294d880
+[DEBUG] :  dalvikvm: Added shared lib /data/app-lib/com.akt.programs.simplecalculator-1/libstlport_shared.so 0x4294d880
+[DEBUG] :  dalvikvm: No JNI_OnLoad found in /data/app-lib/com.akt.programs.simplecalculator-1/libstlport_shared.so 0x4294d880, skipping init
+[DEBUG] :  dalvikvm: Trying to load lib /data/app-lib/com.akt.programs.simplecalculator-1/libtiverify.so 0x4294d880
+[DEBUG] :  dalvikvm: Added shared lib /data/app-lib/com.akt.programs.simplecalculator-1/libtiverify.so 0x4294d880
+[DEBUG] :  dalvikvm: Trying to load lib /data/app-lib/com.akt.programs.simplecalculator-1/libkroll-v8.so 0x4294d880
+[INFO] :   TiApplication: (main) [335,446] Titanium Javascript runtime: v8
+[DEBUG] :  dalvikvm: Added shared lib /data/app-lib/com.akt.programs.simplecalculator-1/libkroll-v8.so 0x4294d880
+[INFO] :   TiRootActivity: (main) [0,0] checkpoint, on root activity create, savedInstanceState: null
+[WARN] :   V8Object: Runtime disposed, cannot set property 'userAgent'
+[DEBUG] :  Module: Loading module: ti.cloud -> Resources/ti.cloud.js
+[DEBUG] :  ProgressBar: setProgress = 0
+[DEBUG] :  ProgressBar: setProgress = 0, fromUser = false
+[DEBUG] :  ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 10000
+[DEBUG] :  ProgressBar: setProgressDrawable mProgressDrawable = null, d = android.graphics.drawable.LayerDrawable@42a898a8needUpdate = false
+[DEBUG] :  ProgressBar: setProgressDrawable drawableHeight = 0
+[DEBUG] :  ProgressBar: setProgress = 0
+[DEBUG] :  ProgressBar: setProgress = 0, fromUser = false
+[DEBUG] :  ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 10000
+[DEBUG] :  dalvikvm: GC_FOR_ALLOC freed 806K, 36% free 16514K/25692K, paused 30ms, total 31ms
+[INFO] :   I/dalvikvm-heap: Grow heap (frag case) to 25.512MB for 6144016-byte allocation
+[DEBUG] :  dalvikvm: GC_CONCURRENT freed 10K, 30% free 22504K/31696K, paused 4ms+1ms, total 25ms
+[INFO] :   TiRootActivity: (main) [0,0] checkpoint, on root activity resume. activity = com.akt.programs.simplecalculator.SimplecalculatorActivity@42a21b90
+[DEBUG] :  Window: Checkpoint: postWindowCreated()
+[ERROR] :  MoreInfoHPW_ViewGroup: Parent view is not a TextView
+[DEBUG] :  dalvikvm: GC_FOR_ALLOC freed 7691K, 36% free 16509K/25696K, paused 18ms, total 18ms
+[INFO] :   I/dalvikvm-heap: Grow heap (frag case) to 21.898MB for 2359312-byte allocation
+[DEBUG] :  dalvikvm: GC_CONCURRENT freed 20K, 27% free 18794K/25696K, paused 3ms+5ms, total 20ms
+[DEBUG] :  ProgressBar: setProgressDrawable mProgressDrawable = null, d = android.graphics.drawable.LayerDrawable@42a1f4e8needUpdate = false
+[DEBUG] :  ProgressBar: setProgressDrawable drawableHeight = 18
+[DEBUG] :  ProgressBar: setProgress = 0
+[DEBUG] :  ProgressBar: setProgress = 0, fromUser = false
+[DEBUG] :  ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 100
+[DEBUG] :  ProgressBar: setProgress = 0
+[DEBUG] :  ProgressBar: setProgress = 0, fromUser = false
+[DEBUG] :  ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 100
+[INFO] :   Choreographer: Skipped 37 frames!  The application may be doing too much work on its main thread.
+[DEBUG] :  libEGL: loaded /vendor/lib/egl/libEGL_adreno.so
+[DEBUG] :  libEGL: loaded /vendor/lib/egl/libGLESv1_CM_adreno.so
+[DEBUG] :  libEGL: loaded /vendor/lib/egl/libGLESv2_adreno.so
+[INFO] :   I/Adreno-EGL: <qeglDrvAPI_eglInitialize:316>: EGL 1.4 QUALCOMM build:  (CL4169980)
+[INFO] :   I/Adreno-EGL: OpenGL ES Shader Compiler Version: 17.01.10.SPL
+[INFO] :   I/Adreno-EGL: Build Date: 09/26/13 Thu
+[INFO] :   I/Adreno-EGL: Local Branch:
+[INFO] :   I/Adreno-EGL: Remote Branch:
+[INFO] :   I/Adreno-EGL: Local Patches:
+[INFO] :   I/Adreno-EGL: Reconstruct Branch:
+[DEBUG] :  OpenGLRenderer: Enabling debug mode 0
+[TRACE] :  RenderScript: 0x7819da00 Launching thread(s), CPUs 4
+[DEBUG] :  Window: Checkpoint: postWindowCreated()
+[DEBUG] :  ProgressBar: setProgress = 0
+[DEBUG] :  ProgressBar: setProgress = 0, fromUser = false
+[DEBUG] :  ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 10000
+[DEBUG] :  dalvikvm: GC_CONCURRENT freed 783K, 25% free 19466K/25696K, paused 3ms+4ms, total 38ms
+[DEBUG] :  ProgressBar: setProgressDrawable mProgressDrawable = null, d = android.graphics.drawable.LayerDrawable@42b98728needUpdate = false
+[DEBUG] :  ProgressBar: setProgressDrawable drawableHeight = 0
+[DEBUG] :  ProgressBar: setProgress = 0
+[DEBUG] :  ProgressBar: setProgress = 0, fromUser = false
+[DEBUG] :  ProgressBar: mProgress = 0mIndeterminate = false, mMin = 0, mMax = 10000
+[INFO] :   I/APACHE HTTP (thCr=196116) - NafHttpAuthStrategyDefault: (thUse=196116) NafHttpAuthStrategyDefault()
+[INFO] :   I/APACHE HTTP (thCr=196116) - KeeperManager: (thUse=196116) INITIALIZATION of shared resources
+[INFO] :   I/APACHE HTTP (thCr=196116) - AndroidContextProviderImpl: (thUse=196116)    currentActivityThread=android.app.ActivityThread@42947b40
+[INFO] :   I/APACHE HTTP (thCr=196116) - NafHttpAuthStrategyDefault: (thUse=196122)    cached value : gbaSupportIsPossible=null
+[INFO] :   I/APACHE HTTP (thCr=196116) - NafHttpAuthStrategyDefault: (thUse=196122)    The current context is NOT a context of GBA service.
+[INFO] :   I/APACHE HTTP (thCr=196116) - GbaSupportPermissionRequestCheckerImpl: (thUse=196122) isCurrentProcessRequestedGba()#finished   result=false
+[INFO] :   I/APACHE HTTP (thCr=196116) - GbaSupportPermissionRequestCheckerImpl: (thUse=196122) isCurrentProcessAllowedToUseGba()#started   result=false
+[INFO] :   I/APACHE HTTP (thCr=196116) - NafHttpAuthStrategyDefault: (thUse=196122)    The GBA permission wasn't requested for this process.
+[INFO] :   I/APACHE HTTP (thCr=196116) - NafHttpAuthStrategyDefault: (thUse=196122) It is impossible to support GBA now (many possible reasons: no Android Context, current client is GBA service, etc.), then it will be just usual HTTP.
+[INFO] :   I/APACHE HTTP (thCr=196122) - NafRequestExecutorWrapperRedirectionHandler: (thUse=196122)    It isn't GBA flow, redirection responses are not handled.
+[DEBUG] :  Window: Window is closed normally.
+[DEBUG] :  skia: --- SkImageDecoder::Factory returned null
+[DEBUG] :  skia: --- SkImageDecoder::Factory returned null
+[ERROR] :  V8Exception: Exception occurred at app.js:477: Uncaught ReferenceError: error is not defined
+[DEBUG] :  HTTPClient: The persistent handle is disposed.

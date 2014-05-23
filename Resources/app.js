@@ -16,7 +16,7 @@ var win = Ti.UI.createWindow({
 
 // create text field 1
 var operand1Text = Ti.UI.createTextField({
-	width : Ti.UI.SIZE/2,
+	width : '180dp',
 	height : '45dp',
 	top : '20dp',
 	hintText : 'Operand 1',
@@ -27,7 +27,7 @@ var operand1Text = Ti.UI.createTextField({
 
 // create text field 2
 var operand2Text = Ti.UI.createTextField({
-	width : Ti.UI.SIZE/2,
+	width : '180dp',
 	height : '45dp',
 	top : '20dp',
 	hintText : 'Operand 2',
